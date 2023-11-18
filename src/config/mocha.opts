@@ -1,0 +1,6 @@
+--recursive
+--require ./config/mocha.js
+--require ignore-styles
+--require jsdom-global/register
+./src/test.js
+./src/**/test.js

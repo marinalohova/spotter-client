@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {image_name}
+  labels:
+    app: {image_name}
+spec:
+  replicas: {instance_count}
+  selector:
+    matchLabels:
+      app: {image_name}
+  template:
+    metadata:
+      labels:
+        app: {image_name}
+    spec:
+      containers:
+      - name: {image_name}
+        image: {image_uri}
+        ports:
+        - containerPort: 80
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {image_name}
+  labels:
+    app: {image_name}
+spec:
+  selector:
+    app: {image_name}
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: {image_name}
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  rules:
+  - host: {host_name}
+    http:
+      paths:
+      - path: {path_name}
+        backend:
+          serviceName: {image_name}
+          servicePort: 80

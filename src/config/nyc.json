@@ -1,0 +1,11 @@
+{
+  "exclude": [
+    "build",
+    "config",
+    "src/**/test.js"
+  ],
+  "reporter": [
+    "lcov",
+    "text-summary"
+  ]
+}
