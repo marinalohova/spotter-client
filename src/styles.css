@@ -36,3 +36,16 @@ h4 {
     font-weight: 500 !important;
     font-style: italic;
 }
+
+ .ProseMirror .is-empty::before {
+     content: 'Add an act in the format "Act Title" and format as Heading or add a beat in the format "Intro (00:00-00:15) This beat opens the video" and format as Text' !important;
+ }
+
+.tippy-content div + div:nth-child(n+2) {
+    display: none !important;
+}
+
+.tippy-content div div:first-child div div button:nth-child(n+5) {
+    display: none !important;
+}
+

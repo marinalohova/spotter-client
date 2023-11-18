@@ -1,15 +1,15 @@
 import listBeatsheets from './listBeatsheets';
 import getBeatsheet from './getBeatsheet';
-import upsertBeatsheet from './upsertBeatsheet';
+import updateBeatsheet from './updateBeatsheet';
 
 export {
   listBeatsheets,
   getBeatsheet,
-  upsertBeatsheet
+  updateBeatsheet
 };
 
 export default {
   listBeatsheets,
   getBeatsheet,
-  upsertBeatsheet,
+  updateBeatsheet,
 };

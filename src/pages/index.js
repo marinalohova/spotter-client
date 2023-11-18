@@ -15,7 +15,7 @@ export default function Dashboard(props) {
         </Grid>
         <Grid container direction="column">{
             beatsheets && beatsheets.map(beatsheet =>
-                <Grid sx={{ my: 2 }} xs={12} container direction="column">
+                <Grid key={beatsheet.id} sx={{ my: 2 }} container direction="column">
                   <Grid item>
                       <h3><a href={`/${beatsheet.id}`}>
                         {beatsheet.title}
@@ -34,12 +34,13 @@ export default function Dashboard(props) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const res = await fetch(process.env.API_HOST, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
+    cache: 'no-store',
     body: JSON.stringify({
       query: listBeatsheets,
     }),

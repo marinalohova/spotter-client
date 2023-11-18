@@ -8,7 +8,7 @@ import styles from '../styles.css';
 import theme from '../theme';
 import 'core-js';
 import Container from '../components/layout/Container';
-import client from '../apollo';
+import createApolloClient from '../apollo';
 
 const clientSideEmotionCache = createEmotionCache();
 export default function MyApp(props) {
@@ -20,7 +20,7 @@ export default function MyApp(props) {
   }, []);
 
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
-
+  const client = createApolloClient();
   return (
       <CacheProvider value={emotionCache}>
         <ApolloProvider client={ client }>

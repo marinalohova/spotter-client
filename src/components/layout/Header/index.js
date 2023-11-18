@@ -8,7 +8,7 @@ import { Grid } from '@mui/material';
 const Header = () => {
   return (
     <div>
-      <Grid container xs={12}>
+      <Grid container>
         <Grid item xs={12} >
             &#9650; Spotter
         </Grid>
