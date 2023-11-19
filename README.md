@@ -29,4 +29,8 @@ Click "Save" when you are done editing.
 
 ## Deploy on Vercel
 
-Push your changes to Git and import your repo to Vercel to deploy.
+Push your changes to Git and import your repo to Vercel to deploy
+
+## Demo
+
+https://spotter-client.vercel.app/
